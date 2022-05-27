@@ -1,0 +1,25 @@
+<resources>
+    <string name="app_name">Desafio1.1</string>
+    <string name="Prueba">prueba</string>
+    <string name="userName">Usuario</string>
+    <string name="pass">Contraseña</string>
+    <string name="btnEntrar">Ingresar</string>
+    <string name="btnSalir">Salir</string>
+    <string name="btnEnviar">Enviar</string>
+    <string name="encuestaPreg1">¿Eres mas de series o peliculas?</string>
+    <string name="encuestaPreg1Res1">Peliculas</string>
+    <string name="encuestaPreg1Res2">Series</string>
+    <string name="encuestaPreg1Res3">Ambas</string>
+    <string name="encuestaPreg2">Saga de peliculas preferida:</string>
+    <string name="encuestaPreg2Res1">Señor de los anillos</string>
+    <string name="encuestaPreg2Res2">Marvel</string>
+    <string name="encuestaPreg2res3">Mision imposible</string>
+    <string name="encuestaPreg3">¿Que tipos de peliculas te gustan mas?</string>
+    <string name="encuestaPreg3Res1">Accion</string>
+    <string name="encuestaPreg3Res2">Ciencia Ficcion</string>
+    <string name="encuestaPreg3Res3">Romanticas</string>
+    <string name="encuestaPreg4">Cuantas peliculas ves semanalmente?</string>
+    <string name="encuestaPreg5">¿Si o no?</string>
+    <string name="encuestaPreg6">¿Que te ha parecido esta encuesta? valora de 0 a 10</string>
+
+</resources>
