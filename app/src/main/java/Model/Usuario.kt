@@ -14,4 +14,5 @@ data class Usuario(@SerializedName("idUser")
 
                    @SerializedName("pass")
                    var pass: String? = null) : Serializable {
+                       // holasssss
 }
