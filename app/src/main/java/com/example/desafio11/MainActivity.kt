@@ -13,7 +13,12 @@ import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
+
+
 class MainActivity : AppCompatActivity() {
+    companion object {
+        var fragmentNum = 0
+    }
     lateinit var txtNombre : TextView
     lateinit var txtPass : TextView
     lateinit var intentAdmin: Intent
@@ -26,7 +31,7 @@ class MainActivity : AppCompatActivity() {
         txtNombre = findViewById(R.id.txtUser)
         txtPass = findViewById(R.id.txtPass)
         intentAdmin = Intent (this,LoginAdminActivity::class.java)
-        intentUser = Intent (this,EncuestaActivity::class.java)
+        intentUser = Intent (this,LoginActivity::class.java)
 
     }
 

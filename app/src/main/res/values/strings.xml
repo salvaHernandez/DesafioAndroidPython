@@ -21,5 +21,9 @@
     <string name="encuestaPreg4">Cuantas peliculas ves semanalmente?</string>
     <string name="encuestaPreg5">¿Si o no?</string>
     <string name="encuestaPreg6">¿Que te ha parecido esta encuesta? valora de 0 a 10</string>
+    <string name="btnListado">Listado</string>
+    <string name="btnReiniciar">Reiniciar</string>
+    <string name="swActivar">Activar / Desactivar Encuesta</string>
+    <string name="btnGenerarUser">Generar Usuario</string>
 
 </resources>

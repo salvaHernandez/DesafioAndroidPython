@@ -5,9 +5,11 @@ import Model.Usuario
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
+import com.example.desafio11.MainActivity.Companion.fragmentNum
 
 class LoginAdminActivity : AppCompatActivity() {
     lateinit var us : Usuario
+
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -19,13 +21,15 @@ class LoginAdminActivity : AppCompatActivity() {
     }
 
     fun fragmentEncuesta(view: View) {
-        val fragment = MiFragment(1)
+        val fragment = MiFragment()
         replaceFragment(fragment)
+        fragmentNum = 1
     }
 
     fun fragmentUsuario(view: View) {
-        val fragment = MiFragment(2)
+        val fragment = MiFragment()
         replaceFragment(fragment)
+        fragmentNum = 2
 
     }
 
