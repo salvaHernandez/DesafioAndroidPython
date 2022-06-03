@@ -14,7 +14,6 @@
             android:id="@+id/txtInfoUs"
             android:layout_width="354dp"
             android:layout_height="50dp"
-            android:text="TextView"
             android:textSize="16dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"

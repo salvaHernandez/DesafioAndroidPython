@@ -9,6 +9,8 @@ import android.widget.Toast
 import Api.ServiceBuilder
 import Api.UserApi
 import Model.Usuario
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -18,6 +20,7 @@ import retrofit2.Response
 class MainActivity : AppCompatActivity() {
     companion object {
         var fragmentNum = 0
+
     }
     lateinit var txtNombre : TextView
     lateinit var txtPass : TextView
@@ -27,6 +30,7 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
 
         txtNombre = findViewById(R.id.txtUser)
         txtPass = findViewById(R.id.txtPass)

@@ -130,7 +130,7 @@
         app:layout_constraintVertical_bias="0.889" />
 
     <Switch
-        android:id="@+id/swActivarEnc"
+        android:id="@+id/swAnime"
         android:layout_width="115dp"
         android:layout_height="35dp"
         android:text="Anime"
@@ -244,6 +244,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:onClick="EnviarEncuesta"
             android:text="@string/btnEnviar"
             android:textSize="12dp" />
 
@@ -252,6 +253,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:onClick="Salir"
             android:text="@string/btnSalir"
             android:textSize="12dp" />
 

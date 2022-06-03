@@ -1,14 +1,25 @@
 package Api
 
+import Model.Encuesta
 import Model.Usuario
+import okhttp3.ResponseBody
 import retrofit2.Call
-import retrofit2.http.GET
-import retrofit2.http.Path
+import retrofit2.http.*
 
 interface UserApi {
 
     @GET("usuario/{name}")
     fun getUnUsuario(@Path("name") id:String): Call<Usuario>
+
+
+    @GET("listadoUsuarios")
+    fun getListaUsuarios(): Call<ArrayList<Usuario>>
+
+
+    @Headers("Content-Type:application/json")
+    @POST("rellenarEncuesta/")
+    fun addEncuesta(@Body info: Encuesta): Call<ResponseBody>
+
 
     /* Implementar
     @GET("user/{name}/{pass}")
