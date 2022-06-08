@@ -9,6 +9,10 @@ import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.RecyclerView
 import com.example.desafio11.R
+import kotlinx.android.synthetic.main.usuarios_card.*
+import android.widget.*
+
+
 
 class RecyclerUsuarios(var context: AppCompatActivity, var usuarios:ArrayList<Usuario>): RecyclerView.Adapter<RecyclerUsuarios.ViewHolder>() {
 
@@ -23,7 +27,7 @@ class RecyclerUsuarios(var context: AppCompatActivity, var usuarios:ArrayList<Us
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
 
-        val item = usuarios.get(position)
+        val item = usuarios[position]
         holder.bind(item, context, this)
     }
 
@@ -34,6 +38,12 @@ class RecyclerUsuarios(var context: AppCompatActivity, var usuarios:ArrayList<Us
 
 
         fun bind(u: Usuario, context: AppCompatActivity, adaptador:RecyclerUsuarios){
+
+
+            when (u.idRol) {
+                1 -> infoUser.append("admin  ")
+                2 -> infoUser.append("Usuario  ")
+            }
             infoUser.append("Usuario: "+u.Nombre+" Contraseña: "+u.pass)
             // Hacer select para recoger el rol que tiene
 

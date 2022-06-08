@@ -15,8 +15,9 @@
     </style>
 
     <style name="btnTheme" parent="Theme.Desafio11">
-        <item name="colorButtonNormal">@color/colorBtn</item>
-        <item name="colorControlHighlight">@color/colorBtnPulsado</item>
+        <item name="colorPrimary">@color/colorBtn</item>
+
+
     </style>
 
 

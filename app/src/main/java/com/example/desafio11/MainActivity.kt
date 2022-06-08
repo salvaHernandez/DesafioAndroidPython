@@ -11,6 +11,7 @@ import Api.UserApi
 import Model.Usuario
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import kotlinx.android.synthetic.main.activity_main.*
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -22,8 +23,6 @@ class MainActivity : AppCompatActivity() {
         var fragmentNum = 0
 
     }
-    lateinit var txtNombre : TextView
-    lateinit var txtPass : TextView
     lateinit var intentAdmin: Intent
     lateinit var intentUser: Intent
 
@@ -32,8 +31,6 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
 
-        txtNombre = findViewById(R.id.txtUser)
-        txtPass = findViewById(R.id.txtPass)
         intentAdmin = Intent (this,LoginAdminActivity::class.java)
         intentUser = Intent (this,LoginActivity::class.java)
 
@@ -45,16 +42,15 @@ class MainActivity : AppCompatActivity() {
 
     fun Ingresar (view: View) {
         val request = ServiceBuilder.buildService(UserApi::class.java)
-        val call = request.getUnUsuario(txtNombre.text.toString().trim())
+        val call = request.getUnUsuario(txtUser.text.toString().trim())
 
         call.enqueue(object : Callback<Usuario> {
             override fun onResponse(call: Call<Usuario>, response: Response<Usuario>) {
                 val post = response.body()
                 if (post != null) {
                     val u = Usuario (
-                        post.idUser,
-                        post.idRol,
                         post.Nombre,
+                        post.idRol,
                         post.pass
                     )
                     if (u.pass == txtPass.text.toString()) {

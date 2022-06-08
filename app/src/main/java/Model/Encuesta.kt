@@ -24,7 +24,7 @@ data class Encuesta(@SerializedName("idEncuesta")
                     @SerializedName("valoracion")
                     var valoracion: Int? = null,
 
-                    @SerializedName("idUser")
-                    var idUser: Int? = null) : Serializable {
+                    @SerializedName("nombreUsu")
+                    var nombreUsu: String? = null) : Serializable {
 
 }

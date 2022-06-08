@@ -12,14 +12,19 @@ interface UserApi {
     fun getUnUsuario(@Path("name") id:String): Call<Usuario>
 
 
-    @GET("listadoUsuarios")
+    @GET("listaUsuarios")
     fun getListaUsuarios(): Call<ArrayList<Usuario>>
 
+    @GET("listaEncuestas")
+    fun getListaEncuestas(): Call<ArrayList<Encuesta>>
 
     @Headers("Content-Type:application/json")
-    @POST("rellenarEncuesta/")
+    @POST("addEncuesta")
     fun addEncuesta(@Body info: Encuesta): Call<ResponseBody>
 
+    @Headers("Content-Type:application/json")
+    @POST("addUser")
+    fun addUsuario(@Body info: Usuario): Call<ResponseBody>
 
     /* Implementar
     @GET("user/{name}/{pass}")
