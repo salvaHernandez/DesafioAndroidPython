@@ -31,5 +31,6 @@
     <string name="btnCancelar">Cancel</string>
     <string name="administrador">Admin</string>
     <string name="txtValoracion">Value</string>
+    <string name="strMenNoHayEncuestas">To see the summary there must be registered surveys</string>
 
 </resources>

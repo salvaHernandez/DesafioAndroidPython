@@ -6,8 +6,8 @@
     android:layout_height="match_parent">
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width="342dp"
-        android:layout_height="640dp"
+        android:layout_width="343dp"
+        android:layout_height="658dp"
         android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -159,128 +159,127 @@
             app:layout_constraintTop_toBottomOf="@+id/textView"
             app:layout_constraintVertical_bias="0.171" />
 
+
         <TextView
             android:id="@+id/txtTotalPelicula"
-            android:layout_width="71dp"
-            android:layout_height="26dp"
+            android:layout_width="103dp"
+            android:layout_height="30dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.727"
+            app:layout_constraintHorizontal_bias="0.807"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textView"
-            app:layout_constraintVertical_bias="0.038" />
+            app:layout_constraintVertical_bias="0.035" />
 
         <TextView
             android:id="@+id/txtTotalSerie"
-            android:layout_width="71dp"
-            android:layout_height="26dp"
+            android:layout_width="103dp"
+            android:layout_height="30dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.727"
+            app:layout_constraintHorizontal_bias="0.807"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textView"
-            app:layout_constraintVertical_bias="0.119" />
+            app:layout_constraintVertical_bias="0.116" />
 
         <TextView
             android:id="@+id/txtTotalSirAnillo"
-            android:layout_width="71dp"
-            android:layout_height="26dp"
+            android:layout_width="103dp"
+            android:layout_height="30dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.727"
+            app:layout_constraintHorizontal_bias="0.807"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textView"
-            app:layout_constraintVertical_bias="0.202" />
+            app:layout_constraintVertical_bias="0.197" />
 
         <TextView
             android:id="@+id/txtTotalMarvel"
-            android:layout_width="71dp"
-            android:layout_height="26dp"
+            android:layout_width="103dp"
+            android:layout_height="30dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.727"
+            app:layout_constraintHorizontal_bias="0.807"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textView"
-            app:layout_constraintVertical_bias="0.296" />
+            app:layout_constraintVertical_bias="0.295" />
 
         <TextView
             android:id="@+id/txtTotalMision"
-            android:layout_width="71dp"
-            android:layout_height="26dp"
+            android:layout_width="103dp"
+            android:layout_height="30dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.727"
+            app:layout_constraintHorizontal_bias="0.807"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textView"
             app:layout_constraintVertical_bias="0.383" />
 
         <TextView
             android:id="@+id/txtTotalAccion"
-            android:layout_width="71dp"
-            android:layout_height="26dp"
+            android:layout_width="103dp"
+            android:layout_height="30dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.727"
+            app:layout_constraintHorizontal_bias="0.807"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textView"
-            app:layout_constraintVertical_bias="0.482" />
+            app:layout_constraintVertical_bias="0.484" />
 
         <TextView
             android:id="@+id/txtTotalCiencia"
-            android:layout_width="71dp"
-            android:layout_height="26dp"
+            android:layout_width="103dp"
+            android:layout_height="30dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.727"
+            app:layout_constraintHorizontal_bias="0.807"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textView"
-            app:layout_constraintVertical_bias="0.567" />
+            app:layout_constraintVertical_bias="0.57" />
 
         <TextView
             android:id="@+id/txtTotalRomanticas"
-            android:layout_width="71dp"
-            android:layout_height="26dp"
+            android:layout_width="103dp"
+            android:layout_height="30dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.727"
+            app:layout_constraintHorizontal_bias="0.807"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textView"
-            app:layout_constraintVertical_bias="0.659" />
+            app:layout_constraintVertical_bias="0.662" />
 
         <TextView
             android:id="@+id/txtTotalNumPelis"
-            android:layout_width="71dp"
-            android:layout_height="26dp"
+            android:layout_width="103dp"
+            android:layout_height="30dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.726"
+            app:layout_constraintHorizontal_bias="0.807"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textView"
-            app:layout_constraintVertical_bias="0.744" />
+            app:layout_constraintVertical_bias="0.74" />
 
         <TextView
             android:id="@+id/txtTotalAnime"
-            android:layout_width="71dp"
-            android:layout_height="26dp"
+            android:layout_width="103dp"
+            android:layout_height="30dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.726"
+            app:layout_constraintHorizontal_bias="0.807"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textView"
-            app:layout_constraintVertical_bias="0.819" />
+            app:layout_constraintVertical_bias="0.825" />
 
         <TextView
             android:id="@+id/txtTotalValoracion"
-            android:layout_width="71dp"
-            android:layout_height="26dp"
+            android:layout_width="103dp"
+            android:layout_height="30dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.726"
+            app:layout_constraintHorizontal_bias="0.824"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textView"
-            app:layout_constraintVertical_bias="0.894" />
-
-
+            app:layout_constraintVertical_bias="0.901" />
 
         <TextView
             android:id="@+id/textView"
@@ -297,16 +296,16 @@
 
         <Button
             android:id="@+id/btnTotalSalir"
-            android:layout_width="262dp"
-            android:layout_height="40dp"
+            android:layout_width="248dp"
+            android:layout_height="38dp"
             android:text="@string/btnSalir"
             android:theme="@style/btnTheme"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.493"
+            app:layout_constraintHorizontal_bias="0.372"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.991" />
+            app:layout_constraintVertical_bias="0.988" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

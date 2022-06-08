@@ -103,7 +103,7 @@ class MiFragment() : Fragment() {
                 }
             }
             override fun onFailure(call: Call<Usuario>, t: Throwable) {
-                Toast.makeText(LoginAdminActivity.con, "${t.message}", Toast.LENGTH_SHORT).show()
+                Toast.makeText(con, "${t.message}", Toast.LENGTH_SHORT).show()
             }
         })
         return resultado

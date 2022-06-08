@@ -1,5 +1,6 @@
 package Api
 
+import Model.ControlEncuesta
 import Model.Encuesta
 import Model.Usuario
 import okhttp3.ResponseBody
@@ -26,33 +27,17 @@ interface UserApi {
     @POST("addUser")
     fun addUsuario(@Body info: Usuario): Call<ResponseBody>
 
-    /* Implementar
-    @GET("user/{name}/{pass}")
-    fun getUser(@Path("name") id:String, ("passs") i:String): Call<Usuario>
-*/
 
-    // Ejemplos
-    /*
-    @GET("listado")
-    fun getUsuarioss(): Call<MutableList<Usuario>>
+    @DELETE("reiniciarEncuesta")
+    fun deleteEncuesta(): Call<ResponseBody>
 
-    @GET("listado/{id}")
-    fun getUnUsuario(@Path("id") id:String): Call<Usuario>
+    @GET("encuesta/{nombreEncuesta}")
+    fun getEstadoEncuesta(@Path("nombreEncuesta") nombreEncuesta:String): Call<ControlEncuesta>
+
 
     @Headers("Content-Type:application/json")
-    @POST("registrar")
-    fun addUsuario(@Body info: Usuario) : Call<ResponseBody> // cuando pasas valor
+    @PUT("activarDesactivarEnc/")
+    fun modEstadoEncuesta(@Body info: ControlEncuesta): Call<ResponseBody>
 
-    @Headers("Content-Type:application/json")
-    @POST("login")
-    fun loginUsuario(@Body info: Usuario) : Call<MutableList<Rol>> // cuando recoges una lista
-
-    @DELETE("borrar/{dni}")
-    fun borrarUsuario(@Path("dni") id:String) : Call<ResponseBody>
-
-    @Headers("Content-Type:application/json")
-    @PUT("modificar")
-    fun modUsuario(@Body info: Usuario) : Call<ResponseBody>
-     */
 
 }

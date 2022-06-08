@@ -20,7 +20,7 @@
         tools:ignore="TouchTargetSizeCheck" />
 
     <Button
-        android:id="@+id/btnGenerarUs"
+        android:id="@+id/btnReiniciarEnc"
         android:layout_width="169dp"
         android:layout_height="40dp"
         android:text="@string/btnReiniciar"
