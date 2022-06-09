@@ -22,5 +22,15 @@
     <string name="encuestaPreg5">Yes or not?</string>
     <string name="encuestaPreg4">How many movies do you watch weekly?</string>
     <string name="encuestaPreg6">What did you think of this survey? rate from 0 to 10</string>
+    <string name="btnGrafico">Graphic</string>
+    <string name="btnReiniciar">Restart</string>
+    <string name="swActivar">activate / deactivate poll</string>
+    <string name="btnGenerarUser">Generate User</string>
+    <string name="strTituloAddUs">User register</string>
+    <string name="btnRegistrar">Register</string>
+    <string name="btnCancelar">Cancel</string>
+    <string name="administrador">Admin</string>
+    <string name="txtValoracion">Value</string>
+    <string name="strMenNoHayEncuestas">To see the summary there must be registered surveys</string>
 
 </resources>

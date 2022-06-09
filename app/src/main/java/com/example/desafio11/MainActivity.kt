@@ -8,14 +8,23 @@ import android.widget.TextView
 import android.widget.Toast
 import Api.ServiceBuilder
 import Api.UserApi
+import Model.ControlEncuesta
 import Model.Usuario
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
+import kotlinx.android.synthetic.main.activity_main.*
+import okhttp3.ResponseBody
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
+
+
 class MainActivity : AppCompatActivity() {
-    lateinit var txtNombre : TextView
-    lateinit var txtPass : TextView
+    companion object {
+        var fragmentNum = 0
+        var encuestaActivada = 0
+    }
     lateinit var intentAdmin: Intent
     lateinit var intentUser: Intent
 
@@ -23,10 +32,12 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        txtNombre = findViewById(R.id.txtUser)
-        txtPass = findViewById(R.id.txtPass)
+        supportActionBar?.hide()
+
         intentAdmin = Intent (this,LoginAdminActivity::class.java)
-        intentUser = Intent (this,EncuestaActivity::class.java)
+        intentUser = Intent (this,LoginActivity::class.java)
+        comprobarEstadoEncuesta()
+
 
     }
 
@@ -35,17 +46,18 @@ class MainActivity : AppCompatActivity() {
     }
 
     fun Ingresar (view: View) {
+
+
         val request = ServiceBuilder.buildService(UserApi::class.java)
-        val call = request.getUnUsuario(txtNombre.text.toString().trim())
+        val call = request.getUnUsuario(txtUser.text.toString().trim())
 
         call.enqueue(object : Callback<Usuario> {
             override fun onResponse(call: Call<Usuario>, response: Response<Usuario>) {
                 val post = response.body()
                 if (post != null) {
                     val u = Usuario (
-                        post.idUser,
-                        post.idRol,
                         post.Nombre,
+                        post.idRol,
                         post.pass
                     )
                     if (u.pass == txtPass.text.toString()) {
@@ -70,39 +82,24 @@ class MainActivity : AppCompatActivity() {
 
     }
 
-    /*
-    fun Ingresar2 (view:View) {
+    private fun comprobarEstadoEncuesta() {
         val request = ServiceBuilder.buildService(UserApi::class.java)
-        val call = request.getUnUsuario(txtNombre.text.toString().trim(), txtPass.text.toString().trim())
+        val call = request.getEstadoEncuesta("Cine")
 
-        call.enqueue(object : Callback<Usuario> {
-            override fun onResponse(call: Call<Usuario>, response: Response<Usuario>) {
+        call.enqueue(object : Callback<ControlEncuesta> {
+            override fun onResponse(call: Call<ControlEncuesta>, response: Response<ControlEncuesta>) {
                 val post = response.body()
                 if (post != null) {
-                    val u = Usuario (
-                        post.idUser,
-                        post.idRol,
-                        post.Nombre,
-                        post.pass
-                    )
-                    print(u.toString()+"  TANQUETANQUE")
-                    if (u.pass == txtPass.text.toString()) {
-
-                        intentV1.putExtra("obj",u)
-                        startActivity(intentV1)
-                    }
+                    encuestaActivada = post.activada!!
                 }
                 else {
                     Toast.makeText(applicationContext, "No se han encontrado resultados", Toast.LENGTH_SHORT).show()
                 }
             }
-            override fun onFailure(call: Call<Usuario>, t: Throwable) {
+            override fun onFailure(call: Call<ControlEncuesta>, t: Throwable) {
                 Toast.makeText(this@MainActivity, "${t.message}", Toast.LENGTH_SHORT).show()
             }
         })
-
-
     }
-    */
 
 }

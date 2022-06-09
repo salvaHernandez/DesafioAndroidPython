@@ -121,7 +121,7 @@
         android:id="@+id/sBarValorEncuesta"
         android:layout_width="200dp"
         android:layout_height="22dp"
-        android:max="8"
+        android:max="10"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.15"
@@ -207,7 +207,7 @@
         android:id="@+id/sBarPeliculas"
         android:layout_width="200dp"
         android:layout_height="22dp"
-        android:max="8"
+        android:max="10"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.15"
@@ -244,16 +244,20 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:onClick="EnviarEncuesta"
             android:text="@string/btnEnviar"
-            android:textSize="12dp" />
+            android:textSize="12dp"
+            android:theme="@style/btnTheme" />
 
         <Button
             android:id="@+id/btnReinciar"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:onClick="Salir"
             android:text="@string/btnSalir"
-            android:textSize="12dp" />
+            android:textSize="12dp"
+            android:theme="@style/btnTheme" />
 
     </LinearLayout>
 
@@ -286,8 +290,5 @@
             android:layout_height="33dp"
             android:text="@string/encuestaPreg3Res3" />
     </RadioGroup>
-
-
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>

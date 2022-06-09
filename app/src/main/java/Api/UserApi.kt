@@ -1,42 +1,42 @@
 package Api
 
+import Model.ControlEncuesta
+import Model.Encuesta
 import Model.Usuario
+import okhttp3.ResponseBody
 import retrofit2.Call
-import retrofit2.http.GET
-import retrofit2.http.Path
+import retrofit2.http.*
 
 interface UserApi {
 
     @GET("usuario/{name}")
     fun getUnUsuario(@Path("name") id:String): Call<Usuario>
 
-    /* Implementar
-    @GET("user/{name}/{pass}")
-    fun getUser(@Path("name") id:String, ("passs") i:String): Call<Usuario>
-*/
+    @GET("listaUsuarios")
+    fun getListaUsuarios(): Call<ArrayList<Usuario>>
 
-    // Ejemplos
-    /*
-    @GET("listado")
-    fun getUsuarioss(): Call<MutableList<Usuario>>
-
-    @GET("listado/{id}")
-    fun getUnUsuario(@Path("id") id:String): Call<Usuario>
+    @GET("listaEncuestas")
+    fun getListaEncuestas(): Call<ArrayList<Encuesta>>
 
     @Headers("Content-Type:application/json")
-    @POST("registrar")
-    fun addUsuario(@Body info: Usuario) : Call<ResponseBody> // cuando pasas valor
+    @POST("addEncuesta")
+    fun addEncuesta(@Body info: Encuesta): Call<ResponseBody>
 
     @Headers("Content-Type:application/json")
-    @POST("login")
-    fun loginUsuario(@Body info: Usuario) : Call<MutableList<Rol>> // cuando recoges una lista
+    @POST("addUser")
+    fun addUsuario(@Body info: Usuario): Call<ResponseBody>
 
-    @DELETE("borrar/{dni}")
-    fun borrarUsuario(@Path("dni") id:String) : Call<ResponseBody>
+    @DELETE("reiniciarEncuesta")
+    fun deleteEncuesta(): Call<ResponseBody>
+
+    @GET("encuesta/{nombreEncuesta}")
+    fun getEstadoEncuesta(@Path("nombreEncuesta") nombreEncuesta:String): Call<ControlEncuesta>
 
     @Headers("Content-Type:application/json")
-    @PUT("modificar")
-    fun modUsuario(@Body info: Usuario) : Call<ResponseBody>
-     */
+    @PUT("activarDesactivarEnc")
+    fun modEstadoEncuesta(@Body info: ControlEncuesta): Call<ResponseBody>
+
+
+
 
 }
