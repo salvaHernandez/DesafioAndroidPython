@@ -291,7 +291,4 @@
             android:text="@string/encuestaPreg3Res3" />
     </RadioGroup>
 
-
-
-
 </androidx.constraintlayout.widget.ConstraintLayout>

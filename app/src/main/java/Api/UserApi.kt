@@ -12,7 +12,6 @@ interface UserApi {
     @GET("usuario/{name}")
     fun getUnUsuario(@Path("name") id:String): Call<Usuario>
 
-
     @GET("listaUsuarios")
     fun getListaUsuarios(): Call<ArrayList<Usuario>>
 
@@ -27,17 +26,17 @@ interface UserApi {
     @POST("addUser")
     fun addUsuario(@Body info: Usuario): Call<ResponseBody>
 
-
     @DELETE("reiniciarEncuesta")
     fun deleteEncuesta(): Call<ResponseBody>
 
     @GET("encuesta/{nombreEncuesta}")
     fun getEstadoEncuesta(@Path("nombreEncuesta") nombreEncuesta:String): Call<ControlEncuesta>
 
-
     @Headers("Content-Type:application/json")
-    @PUT("activarDesactivarEnc/")
+    @PUT("activarDesactivarEnc")
     fun modEstadoEncuesta(@Body info: ControlEncuesta): Call<ResponseBody>
+
+
 
 
 }

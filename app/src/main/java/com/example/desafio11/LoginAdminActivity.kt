@@ -37,6 +37,8 @@ class LoginAdminActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login_admin)
 
+        supportActionBar?.hide()
+
         con = this
         listaUsu = arrayListOf()
         listaEnc = arrayListOf()

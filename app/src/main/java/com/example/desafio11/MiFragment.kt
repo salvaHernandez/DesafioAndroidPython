@@ -65,16 +65,8 @@ class MiFragment() : Fragment() {
                     }
                     var us = Usuario(view.txtNombreDLG.text.toString(),n, view.txtPassDLG.text.toString())
 
-                    if (comprobarUsuario(us)) {
+                    comprobarUsuario(us, dialog)
 
-                        if (insertarUsuario(us)) {
-                            dialog.cancel()
-                            listaUsu.add(us)
-                            miAdapterUsuario= RecyclerUsuarios(con, listaUsu)
-                            recyclerUsuarios.adapter = miAdapterUsuario
-
-                        } else Toast.makeText(con, "Fallo de conexión con la BD", Toast.LENGTH_LONG).show()
-                    } else  Toast.makeText(con, "El usuario registrado ya existe, inserta otro", Toast.LENGTH_LONG).show()
                 } else Toast.makeText(con, "Tienes que rellenar todos los campos", Toast.LENGTH_LONG).show()
             }
 
@@ -86,33 +78,30 @@ class MiFragment() : Fragment() {
     }
 
 
-    private fun comprobarUsuario(us: Usuario):Boolean {
+    private fun comprobarUsuario(us: Usuario, dialog: AlertDialog) {
 
-        var resultado : Boolean
-        resultado = true
+
         val request = ServiceBuilder.buildService(UserApi::class.java)
         val call = request.getUnUsuario(us.Nombre.toString())
 
         call.enqueue(object : Callback<Usuario> {
             override fun onResponse(call: Call<Usuario>, response: Response<Usuario>) {
                 val post = response.body()
-                if (post != null) {
-                    resultado = false
+                if (post == null) {
+                    insertarUsuario(us, dialog)
                 } else {
-                    resultado = insertarUsuario(us)
+                    Toast.makeText(con, "El usuario registrado ya existe, inserta otro", Toast.LENGTH_LONG).show()
                 }
             }
             override fun onFailure(call: Call<Usuario>, t: Throwable) {
                 Toast.makeText(con, "${t.message}", Toast.LENGTH_SHORT).show()
             }
         })
-        return resultado
     }
 
 
-    fun insertarUsuario (us : Usuario): Boolean {
+    fun insertarUsuario (us : Usuario, dialog:AlertDialog) {
 
-        var res = false
 
         val request=ServiceBuilder.buildService(UserApi::class.java)
         val call = request.addUsuario(us)
@@ -122,25 +111,22 @@ class MiFragment() : Fragment() {
                 response: Response<ResponseBody>
             ) {
                 if (response.code() == 200) {
-                    Toast.makeText(
-                        LoginAdminActivity.con,
-                        "El usuario se ha enviado correctamente",
-                        Toast.LENGTH_SHORT
-                    ).show()
-                    res = true
+                    Toast.makeText(con, "El usuario se ha enviado correctamente", Toast.LENGTH_SHORT).show()
+                    dialog.cancel()
+                    listaUsu.add(us)
+                    miAdapterUsuario= RecyclerUsuarios(con, listaUsu)
+                    recyclerUsuarios.adapter = miAdapterUsuario
                 }
             }
 
             override fun onFailure(call: Call<ResponseBody>, t: Throwable) {
                 Toast.makeText(
-                    LoginAdminActivity.con,
+                    con,
                     "${t.message}",
                     Toast.LENGTH_SHORT
                 ).show()
             }
         })
-
-        return res
     }
 
 

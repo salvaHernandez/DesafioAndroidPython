@@ -8,6 +8,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import android.widget.*
+import com.example.desafio11.MainActivity.Companion.encuestaActivada
 import kotlinx.android.synthetic.main.activity_login.*
 import okhttp3.ResponseBody
 import retrofit2.Call
@@ -20,6 +21,14 @@ class LoginActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
+
+        supportActionBar?.hide()
+
+        if (encuestaActivada == 0) {
+            estadoEncuesta(false)
+        } else {
+            estadoEncuesta(true)
+        }
 
         us = (intent.getSerializableExtra("obj")) as Usuario
 
@@ -54,6 +63,8 @@ class LoginActivity : AppCompatActivity() {
 
 
     }
+
+
 
     fun Salir (view: View) {
         finish()
@@ -104,10 +115,10 @@ class LoginActivity : AppCompatActivity() {
     }
 
     private fun vaciarEncuesta() {
-        rdBtnPeli.isChecked = false
+        rdBtnPeli.isChecked = true
         rdBtnSerie.isChecked = false
         rdBtnAmbas.isChecked = false
-        rdBtnAnillo.isChecked = false
+        rdBtnAnillo.isChecked = true
         rdBtnMarvel.isChecked = false
         rdBtnMision.isChecked = false
         chkAccion.isChecked = false
@@ -118,6 +129,25 @@ class LoginActivity : AppCompatActivity() {
         sBarValorEncuesta.progress = 0
     }
 
+    private fun estadoEncuesta(estado: Boolean) {
+        rdBtnPeli.isEnabled = estado
+        rdBtnSerie.isEnabled = estado
+        rdBtnAmbas.isEnabled = estado
+        rdBtnAnillo.isEnabled = estado
+        rdBtnMarvel.isEnabled = estado
+        rdBtnMision.isEnabled = estado
+        chkAccion.isEnabled = estado
+        chkCienciaFiccion.isEnabled = estado
+        chkRomanticas.isEnabled = estado
+        swAnime.isEnabled = estado
+        sBarPeliculas.isEnabled = estado
+        sBarValorEncuesta.isEnabled = estado
+        btnEnviar.isEnabled = estado
+
+        if (!estado) {
+            Toast.makeText(this@LoginActivity, "La encuesta esta desactivada", Toast.LENGTH_SHORT).show()
+        }
+    }
 
     private fun rellenaDatosEncuesta():Encuesta {
 

@@ -143,10 +143,8 @@ class MiFragmentEncuesta : Fragment() {
             ) {
                 if (response.code() == 200) {
                     Toast.makeText(con, "Estado de la encuesta modificada", Toast.LENGTH_SHORT).show()
-
                 }
             }
-
             override fun onFailure(call: Call<ResponseBody>, t: Throwable) {
                 Toast.makeText(con, "${t.message}", Toast.LENGTH_LONG).show()
             }
