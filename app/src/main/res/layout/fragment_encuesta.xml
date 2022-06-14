@@ -58,8 +58,8 @@
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerEncuestas"
-        android:layout_width="381dp"
-        android:layout_height="549dp"
+        android:layout_width="380dp"
+        android:layout_height="513dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

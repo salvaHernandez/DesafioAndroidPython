@@ -40,15 +40,15 @@ class RecyclerEncuestas(var context: AppCompatActivity, var encuestas:ArrayList<
 
         fun bind(e: Encuesta, context: AppCompatActivity, adaptador:RecyclerEncuestas){
 
-            infoNombre.append("Nombre "+e.nombreUsu)
-            serie.append("Preferencia: "+e.seriePeli)
-            saga.append("Saga: "+e.saga)
-            genero.append("Genero: "+e.generoPreferido)
-            numPelis.append("Peliculas semanales "+e.numPelis.toString())
+            infoNombre.setText("Nombre "+e.nombreUsu)
+            serie.setText("Preferencia: "+e.seriePeli)
+            saga.setText("Saga: "+e.saga)
+            genero.setText("Genero: "+e.generoPreferido)
+            numPelis.setText("Peliculas semanales "+e.numPelis.toString())
             if (e.anime == 1) {
-                anime.append("Anime: Si")
-            } else anime.append("Anime: No")
-            valoracion.append("Valoración: "+e.valoracion.toString())
+                anime.setText("Anime: Si")
+            } else anime.setText("Anime: No")
+            valoracion.setText("Valoración: "+e.valoracion.toString())
 
         }
     }

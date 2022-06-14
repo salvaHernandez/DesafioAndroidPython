@@ -65,7 +65,6 @@ class LoginActivity : AppCompatActivity() {
     }
 
 
-
     fun Salir (view: View) {
         finish()
     }
@@ -73,11 +72,7 @@ class LoginActivity : AppCompatActivity() {
     fun EnviarEncuesta (view: View) {
 
         if (!chkAccion.isChecked && !chkCienciaFiccion.isChecked && !chkRomanticas.isChecked) {
-            Toast.makeText(
-                this@LoginActivity,
-                "Tienes que elegir algun genero",
-                Toast.LENGTH_SHORT
-            ).show()
+            Toast.makeText(this@LoginActivity, "Tienes que elegir algun genero", Toast.LENGTH_SHORT).show()
         } else {
             val enc = rellenaDatosEncuesta()
             val request = ServiceBuilder.buildService(UserApi::class.java)
@@ -88,18 +83,9 @@ class LoginActivity : AppCompatActivity() {
                     response: Response<ResponseBody>
                 ) {
                     if (response.code() == 200) {
-                        Toast.makeText(
-                            this@LoginActivity,
-                            "La encuesta se ha enviado correctamente",
-                            Toast.LENGTH_SHORT
-                        ).show()
+                        Toast.makeText(this@LoginActivity, "La encuesta se ha enviado correctamente", Toast.LENGTH_SHORT).show()
                         vaciarEncuesta()
-                    } else Toast.makeText(
-                        this@LoginActivity,
-                        "Recuerda que tienes que rellenar todos los datos",
-                        Toast.LENGTH_SHORT
-                    )
-                        .show()
+                    } else Toast.makeText(this@LoginActivity, "Recuerda que tienes que rellenar todos los datos", Toast.LENGTH_SHORT).show()
                 }
 
                 override fun onFailure(call: Call<ResponseBody>, t: Throwable) {
@@ -167,16 +153,39 @@ class LoginActivity : AppCompatActivity() {
             R.id.rdBtnMarvel -> enc.saga = getString(R.string.encuestaPreg2Res2)
             R.id.rdBtnMision -> enc.saga = getString(R.string.encuestaPreg2res3)
         }
-
+/*
         if (chkAccion.isChecked) {
             enc.generoPreferido += getString(R.string.encuestaPreg3Res1)
         }
         if (chkCienciaFiccion.isChecked) {
-            enc.generoPreferido += ", "+getString(R.string.encuestaPreg3Res2)
+            enc.generoPreferido += ","+getString(R.string.encuestaPreg3Res2)
         }
         if (chkRomanticas.isChecked) {
-            enc.generoPreferido += ", "+getString(R.string.encuestaPreg3Res3)
+            enc.generoPreferido += ","+getString(R.string.encuestaPreg3Res3)
         }
+*/
+
+        if (chkAccion.isChecked) {
+            enc.generoPreferido += getString(R.string.encuestaPreg3Res1)
+            if (chkCienciaFiccion.isChecked) {
+                enc.generoPreferido += ","+getString(R.string.encuestaPreg3Res2)
+            }
+            if (chkRomanticas.isChecked) {
+                enc.generoPreferido += ","+getString(R.string.encuestaPreg3Res3)
+            }
+        } else {
+            if (chkCienciaFiccion.isChecked) {
+                enc.generoPreferido += getString(R.string.encuestaPreg3Res2)
+                if (chkRomanticas.isChecked) {
+                    enc.generoPreferido += ","+getString(R.string.encuestaPreg3Res3)
+                }
+            } else {
+                if (chkRomanticas.isChecked) {
+                    enc.generoPreferido += getString(R.string.encuestaPreg3Res3)
+                }
+            }
+        }
+
 
 
         if (swAnime.isChecked) {

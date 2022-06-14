@@ -41,10 +41,9 @@ class RecyclerUsuarios(var context: AppCompatActivity, var usuarios:ArrayList<Us
 
 
             when (u.idRol) {
-                1 -> infoUser.append("admin  ")
-                2 -> infoUser.append("Usuario  ")
+                1 -> infoUser.setText("admin  Usuario: "+u.Nombre+" Contraseña: "+u.pass)
+                2 -> infoUser.setText("Usuario  Usuario: "+u.Nombre+" Contraseña: "+u.pass)
             }
-            infoUser.append("Usuario: "+u.Nombre+" Contraseña: "+u.pass)
             // Hacer select para recoger el rol que tiene
 
 

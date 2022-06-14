@@ -3,6 +3,7 @@ import Adaptador.RecyclerEncuestas
 import Api.ServiceBuilder
 import Api.UserApi
 import Model.ControlEncuesta
+import Model.Encuesta
 import android.app.AlertDialog
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -24,6 +25,7 @@ import okhttp3.ResponseBody
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
+import java.text.DecimalFormat
 
 class MiFragmentEncuesta : Fragment() {
 
@@ -106,20 +108,18 @@ class MiFragmentEncuesta : Fragment() {
                 var resumen : ArrayList<Double>
                 resumen = datosTotales()
 
-                print("jaja")
+                view.txtTotalPelicula.append(darFormato(resumen[0])+"%")
+                view.txtTotalSerie.append(darFormato(resumen[1])+"%")
+                view.txtTotalSirAnillo.append(darFormato(resumen[2])+"%")
+                view.txtTotalMarvel.append(darFormato(resumen[3])+"%")
+                view.txtTotalMision.append(darFormato(resumen[4])+"%")
+                view.txtTotalAccion.append(darFormato(resumen[5])+"%")
+                view.txtTotalCiencia.append(darFormato(resumen[6])+"%")
+                view.txtTotalRomanticas.append(darFormato(resumen[7])+"%")
+                view.txtTotalNumPelis.append(darFormato(resumen[8])+"%")
+                view.txtTotalAnime.append(darFormato(resumen[9])+"%")
+                view.txtTotalValoracion.append("Media: "+darFormato(resumen[10]))
 
-
-                view.txtTotalPelicula.append(resumen[0].toString()+"%")
-                view.txtTotalSerie.append(resumen[1].toString()+"%")
-                view.txtTotalSirAnillo.append(resumen[2].toString()+"%")
-                view.txtTotalMarvel.append(resumen[3].toString()+"%")
-                view.txtTotalMision.append(resumen[4].toString()+"%")
-                view.txtTotalAccion.append(resumen[5].toString()+"%")
-                view.txtTotalCiencia.append(resumen[6].toString()+"%")
-                view.txtTotalRomanticas.append(resumen[7].toString()+"%")
-                view.txtTotalNumPelis.append("Media: "+resumen[8].toString())
-                view.txtTotalAnime.append(resumen[9].toString()+"%")
-                view.txtTotalValoracion.append("Media: "+resumen[10].toString())
 
 
                 view.btnTotalSalir.setOnClickListener {
@@ -129,6 +129,12 @@ class MiFragmentEncuesta : Fragment() {
             } else Toast.makeText(con, "Para ver el resumen tiene que haber encuestas registradas", Toast.LENGTH_LONG).show()
 
         }
+    }
+
+    private fun darFormato (valor: Double):String {
+
+        var df = DecimalFormat("0.00")
+        return df.format(valor)
     }
 
     private fun activarDesactivarEncuesta(n : Int) {
@@ -155,17 +161,15 @@ class MiFragmentEncuesta : Fragment() {
 
     private fun datosTotales():ArrayList<Double> {
 
+        var datosGenero: ArrayList<Double> = arrayListOf()
         var datos:ArrayList<Double> = arrayListOf()
-        var totalEnc = listaEnc.size
+        var totalEnc = listaEnc.size.toDouble()
         var pelis=0.0
         var series=0.0
         var ambas = 0.0
         var sir=0.0
         var marvel=0.0
         var misionImp=0.0
-        var accion=0.0
-        var ciencia=0.0
-        var romanticas=0.0
         var numPeliculas=0.0
         var anime=0.0
         var valoracion=0.0
@@ -182,15 +186,7 @@ class MiFragmentEncuesta : Fragment() {
                 getString(R.string.encuestaPreg2Res2) -> marvel++
                 else -> misionImp++
             }
-            if (listaEnc[i].generoPreferido.contentEquals(getString(R.string.encuestaPreg3Res1))) {
-                accion++
-            }
-            if (listaEnc[i].generoPreferido.contentEquals(getString(R.string.encuestaPreg3Res2))) {
-                ciencia++
-            }
-            if (listaEnc[i].generoPreferido.contentEquals(getString(R.string.encuestaPreg3Res3))) {
-                romanticas++
-            }
+
             if (listaEnc[i].anime == 1) {
                 anime++
             }
@@ -198,23 +194,69 @@ class MiFragmentEncuesta : Fragment() {
             valoracion+=listaEnc[i].valoracion!!
         }
 
-        datos.add(((pelis + ambas) / totalEnc))
-        datos.add(((series + ambas) / totalEnc))
-        datos.add((sir / totalEnc))
-        datos.add((marvel / totalEnc))
-        datos.add((misionImp / totalEnc))
-        datos.add((accion / totalEnc))
-        datos.add((ciencia / totalEnc))
-        datos.add((romanticas / totalEnc))
-        datos.add((numPeliculas / totalEnc))
-        datos.add((anime / totalEnc))
-        datos.add((valoracion / totalEnc))
+        datosGenero = DatosGeneroEncuesta(listaEnc)
+
+        datos.add(((pelis + ambas) / totalEnc * 100))
+        datos.add(((series + ambas) / totalEnc * 100))
+        datos.add((sir / totalEnc * 100))
+        datos.add((marvel / totalEnc * 100))
+        datos.add((misionImp / totalEnc * 100))
+        datos.add(((datosGenero[0] / totalEnc * 100)))
+        datos.add(((datosGenero[1] / totalEnc * 100)))
+        datos.add(((datosGenero[2] / totalEnc * 100)))
+        datos.add((numPeliculas / totalEnc * 100))
+        datos.add((anime / totalEnc * 100))
+        datos.add((valoracion / totalEnc * 100))
 
         return datos
 
     }
 
+    fun stringToWords(s : String) = s.trim().splitToSequence(',')
+        .filter { it.isNotEmpty() }.toList()
 
 
+    fun DatosGeneroEncuesta(listaEnc:ArrayList<Encuesta>): ArrayList<Double> {
 
+
+        var datosTotales: ArrayList<Double> = arrayListOf()
+        var accion=0.0
+        var ciencia=0.0
+        var romanticas=0.0
+
+
+        for (i in 0 until listaEnc.size) {
+            var cad: String=listaEnc[i].generoPreferido.toString()
+            if (listaEnc[i].generoPreferido!!.contains(",")) {
+                var array: ArrayList<String> = stringToWords(cad) as ArrayList<String>
+                for (x in 0 until array.size) {
+                    if (array[x] == getString(R.string.encuestaPreg3Res1)) {
+                        accion++
+                    }
+                    if (array[x] == getString(R.string.encuestaPreg3Res2)) {
+                        ciencia++
+                    }
+                    if (array[x] == getString(R.string.encuestaPreg3Res3)) {
+                        romanticas++
+                    }
+                }
+            } else {
+                if (listaEnc[i].generoPreferido.toString().equals(R.string.encuestaPreg3Res1)) {
+                    accion++
+                }
+                if (listaEnc[i].generoPreferido.toString().equals(R.string.encuestaPreg3Res2)) {
+                    ciencia++
+                }
+                if (listaEnc[i].generoPreferido.toString().equals(R.string.encuestaPreg3Res3)) {
+                    romanticas++
+                }
+            }
+        }
+
+        datosTotales.add(accion)
+        datosTotales.add(ciencia)
+        datosTotales.add(romanticas)
+
+        return datosTotales
+    }
 }
